@@ -1,0 +1,27 @@
+header {
+    width: 1000px;
+    height: 70px;
+    position: fixed;
+    background: #a4d1ee;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2px;
+    width: 100%;
+}
+
+header .logo {
+    height: 100px;
+    display: flex;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.view {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 14px;
+}

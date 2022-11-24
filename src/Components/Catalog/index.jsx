@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "./index.css";
 
-export default ({ sortCards, cards, deleteCard, deletedCard }) => {
+export default ({ sortCards, cards, deleteCard }) => {
 
     return <Container className="cards-container">
         <Row>
@@ -57,7 +57,6 @@ export default ({ sortCards, cards, deleteCard, deletedCard }) => {
                         timestamp={d.timestamp}
                         category={d.category}
                         deleteCard={deleteCard}
-                        deletedCard={deletedCard}
                     />
                 </Col>)
             }

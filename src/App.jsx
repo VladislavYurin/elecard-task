@@ -6,12 +6,11 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Loader from "./Components/Loader";
 
-var deletedCard = [];
-
 const App = () => {
     const [cards, setCards] = useState([]);
     const [view, setView] = useState("catalog");
     const [isLoading, setIsLoading] = useState(true);
+    // const [deletedCards, setDeletedCards] = useState([]);
 
     useEffect(() => {
         fetch("http://contest.elecard.ru/frontend_data/catalog.json")
@@ -19,11 +18,9 @@ const App = () => {
             .then(data => {
                 setIsLoading(false);
                 setCards(data);
+                // localStorage.setItem("data", JSON.stringify(data));
             });
     }, []);
-
-    localStorage.setItem("data", JSON.stringify(cards));
-
 
     const sortCards = (sortFlag) => {
         const copyCards = cards.concat();
@@ -37,20 +34,20 @@ const App = () => {
             return x.timestamp;
         }).indexOf(timestamp);
         copyCards.splice(index, 1);
-        deletedCard.push(timestamp);
-        // localStorage.setItem("data", JSON.stringify(copyCards));
+        // deletedCards.push(timestamp);
         setCards(copyCards);
     }
-
-//     useEffect(() => {
-//         if (deletedCard.includes(cards.timestamp))
-// }, [])
+    // console.log(deletedCards);
+    // useEffect(() => {
+    //     setDeletedCards(deletedCards);
+    //     localStorage.setItem("deletedCard", deletedCards);
+    // }, [deletedCards])
 
     return <>
         {isLoading ? <Loader /> : <>
             <Header setView={setView} />
             <div className="wrapper">
-                {view === "catalog" ? (<Catalog cards={cards} sortCards={sortCards} deleteCard={deleteCard} deletedCard={deletedCard}/>) : (<Tree cards={cards} />)}
+                {view === "catalog" ? (<Catalog cards={cards} sortCards={sortCards} deleteCard={deleteCard} />) : (<Tree cards={cards} />)}
             </div>
             <Footer /></>}
     </>

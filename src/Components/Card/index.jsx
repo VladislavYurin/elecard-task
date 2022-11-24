@@ -1,19 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./index.css";
 
-const Card = ({ image, filesize, timestamp, category, deleteCard, deletedCard }) => {
+const Card = ({ image, filesize, timestamp, category, deleteCard }) => {
     const imgStyle = {
         // backgroundImage: `url(${image})`
         backgroundImage: `url(https://www.sunhome.ru/i/wallpapers/122/zhivotnie-oboi-dlya-rabochego-stola.xxl.jpg)`
     };
 
     const date = new Date(timestamp);
-
-//     useEffect(() => {
-//         // if (deletedCard.includes(timestamp)) {
-//             console.log(deletedCard, "xxx");
-//         // }
-// }, [])
 
     return (
         <div className="card__info">
@@ -29,7 +23,9 @@ const Card = ({ image, filesize, timestamp, category, deleteCard, deletedCard })
             <div className="card__category">Категория: {category}</div>
             <button
                 className="card__btn"
-                onClick={() => { deleteCard(timestamp) }}>x</button>
+                onClick={() => {
+                    deleteCard(timestamp)
+                }}>x</button>
         </div>
     )
 }

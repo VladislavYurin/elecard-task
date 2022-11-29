@@ -51,7 +51,6 @@ export default ({ sortCards, cards, deleteCard }) => {
             {cards.map((d, i) =>
                 <Col lg={3} md={4} sm={6} className="card" key={i}>
                     <Card
-                        // key={i}
                         image={d.image}
                         filesize={d.filesize}
                         timestamp={d.timestamp}

@@ -50,15 +50,19 @@ export default ({ cards }) => {
   const [show, showModal] = useState(false);
   const [setCard, setSetCard] = useState({});
 
+  // const imgStyle = {
+  //   backgroundImage: `url(http://contest.elecard.ru/frontend_data/${treeData.label})`
+  // };
+
   return <div style={{ padding: "70px" }}>
     {treeData.map((d, i) => (
-      <>
+      <div key={i}>
         <div
           className={`parent `}
           key={i}
           onClick={() => { openTree(d.label) }}
         >
-          .{d.label}
+          {d.label}
         </div>
         {d.children.map((b, i) => {
           return (<div
@@ -66,12 +70,13 @@ export default ({ cards }) => {
             key={i}
             hidden
             onClick={() => { showModal(!show); setSetCard(b) }}
-          >.
-            {b.label}
+            style={{ background: `url(http://contest.elecard.ru/frontend_data/${b.label}) no-repeat`, backgroundSize: "contain", height: "75px", width: "75px" }}
+          >
           </div>)
         })}
-      </>
-    ))}
-    {show && <Modal b={setCard} showModal={showModal} show={show}/>}
-  </div>
+      </div>
+    ))
+    }
+    {show && <Modal b={setCard} showModal={showModal} show={show} />}
+  </div >
 }

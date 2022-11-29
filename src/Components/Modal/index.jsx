@@ -3,9 +3,12 @@ import "./index.css";
 
 export default ({ b, showModal, show }) => {
     const date = new Date(b.timestamp);
-
+    const imgStyle = {
+        backgroundImage: `url(http://contest.elecard.ru/frontend_data/${b.label})`
+    };
+    
     return <div className="popup">
-        <div className="text">Фото: {b.label}</div>
+        <div className="card__img" style={imgStyle}></div>
         <div className="text">Категория: {b.category}</div>
         <div className="text">Размер файла: {b.filesize}</div>
         <div className="text">{"Дата: " + date.getDate() +

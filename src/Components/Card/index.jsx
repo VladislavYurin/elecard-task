@@ -3,8 +3,7 @@ import "./index.css";
 
 const Card = ({ image, filesize, timestamp, category, deleteCard }) => {
     const imgStyle = {
-        // backgroundImage: `url(${image})`
-        backgroundImage: `url(https://www.sunhome.ru/i/wallpapers/122/zhivotnie-oboi-dlya-rabochego-stola.xxl.jpg)`
+        backgroundImage: `url(http://contest.elecard.ru/frontend_data/${image})`
     };
 
     const date = new Date(timestamp);
